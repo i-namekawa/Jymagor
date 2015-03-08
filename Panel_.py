@@ -1,4 +1,4 @@
-from ij import WindowManager
+from ij import WindowManager, IJ
 
 from java.lang.System import getProperty
 from javax.swing import JScrollPane, JPanel, JLabel, JFrame, \
