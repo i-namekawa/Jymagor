@@ -14,12 +14,10 @@ Feed a stack (i.e., calcium imaging time series) and get a frame average of raw 
 # Usage
 
 - Open a stack to analyze
-- Find Menu next to Help menu and open the main panel (Jymagor -> Panel)
+- Find Jymagor menu (next to Help) and open the main panel (Jymagor -> Panel)
 - Adjust the frame range for F (basal level) and Res (Response period)
-- Click to activate the stack you want to analyze
-- Press [Update] button on the main panel
-- You will have morphology and dF/F response map windows as well as Fiji's defaul ROI manager
-- define ROIs on any of opened image and add them to the ROI manager
+- Click to activate the stack you want to analyze and press [Find target] button
+- Press [Update] button on the main panel to get morphology and dF/F response map windows as well as Fiji's defaul ROI manager
+- Daw and define ROIs on any of opened image windows and add them to the ROI manager
 - Press [Plot] button on the main panel to get a plot of dF/F traces
-- Save ROIs using ROI manager's interface.
-
+- Save ROIs using ROI manager's interface
