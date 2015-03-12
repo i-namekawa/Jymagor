@@ -9,7 +9,7 @@ Feed a stack (i.e., calcium imaging time series) and get a frame average of raw 
 1. Copy clut2b.lut into luts folder (typically Fiji.app\luts).
 2. Copy the Jymagor folder to Fiji.app\plugins\Scripts
 3. Fire up Fiji and Help -> Refresh Menus.
-4. Jymagor should be available under Plugins menu (reboot Fiji if not)
+4. Jymagor should be available under Main menu (reboot Fiji if not)
 
 # Usage
 
