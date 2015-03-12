@@ -136,29 +136,25 @@ class PlotListener(ActionListener):
         
         _Fst, _Fen, _Rst, _Ren, _dFoFmin, _dFoFmax = checkSpinners()
         nframes = imp.getNSlices()
-        stack = imp.getStack();
-        raw = []
+        stack = imp.getStack()
+        
+        dFoFtraces = []
         for roi in roim.getRoisAsArray():
-            _tmp = []
+            _raw = [] # raw pixel mean for roi
             for n in range(1, nframes):
                  ip = stack.getProcessor(n)
                  ip.setRoi(roi)
-                 _tmp.append( ip.statistics.mean )
-            raw.append(_tmp)
-        
-        Fvalues = []
-        for nn in range(len(raw)):
-            _tmp = 0
-            for n in range(_Fst, _Fen+1):
-                _tmp += raw[nn][n]
-            Fvalues.append( _tmp / float(_Fen-_Fst) ) # make sure float
-        
-        dFoFtraces = []
-        for rawvalues, F in zip(raw, Fvalues):
-            _tmp = []
-            for val in rawvalues:
-                _tmp.append( 100.0*(val-F)/F )
-            dFoFtraces.append( _tmp )
+                 _raw.append( ip.statistics.mean )
+            
+            _val = 0 # F value (avg over frames)
+            for n in range(_Fst, _Fen):
+                _val += _raw[n]
+            Fval = _val / float(_Fen-_Fst) # make sure float
+            
+            _dfof = [] # now compute dF/F
+            for val in _raw:
+                _dfof.append( 100.0*(val-Fval)/Fval )
+            dFoFtraces.append( _dfof )
 
         # plotting
         plotTraces(dFoFtraces, _Fst, _Fen, _Rst, _Ren, _dFoFmin, _dFoFmax)
