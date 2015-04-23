@@ -12,9 +12,11 @@ from ij import IJ, WindowManager
 from ij.plugin.frame import RoiManager
 from ij.gui import Plot
 
-pluginsFolder = '/plugins/Scripts/Jymagor'
+pluginsFolders = ['/plugins/Scripts/Jymagor', '/plugins/Scripts/Jymagor-master'
+] # if someone download the zip from Github and forgot to rename to Jymagor
 import sys
-sys.path.append(getProperty('fiji.dir') + pluginsFolder)
+for pluginsFolder in pluginsFolders:
+    sys.path.append(getProperty('fiji.dir') + pluginsFolder)
 from Viewer import Viewer
 
 
